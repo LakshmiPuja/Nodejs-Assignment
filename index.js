@@ -22,30 +22,6 @@ db.connect(err=>{
     console.log("Connected to MYSQL Database");
 });
 
-// app.post("/login",async(req, res)=>{
-//     const {username, password} = req.body;
-//     const role = await db.promise().query("SELECT role FROM users WHERE username=?,password=?",[username,password],(err,user) =>{
-//         if(err){
-//             console.log("Invalid username and password");
-//             res.status(404).json({message:"User not found"});
-//         };
-//         return user;
-//     })
-//     if(role === 'admin' || role === "manager"){
-//         let jwtToken = jwt.sign({username,password,role},"1357908642",{expiresIn:'1h'});//encript form
-//         console.log("jwt Token: " ,jwtToken);
-//         const dcodeJwtToken = jwt.verify(jwtToken,"1357908642");// decode jwtToken
-        
-//         res.send({
-//             token:jwtToken,
-//             decode: dcodeJwtToken
-//         });
-//     }else{
-//         res.status(401).json({message:"Invalid role. only ADMIN or MANAGER roles are supported"});
-//     }
-    
-// });
-
 //JWT middleware
 const authenticateToken = (req,res,next)=>{
     const authHeader = req.headers['authorization'];
