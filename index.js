@@ -116,7 +116,7 @@ app.post("/tasks", authenticateToken, async (req, res) => {
     }
 });
 
-// PUT Task Route
+// UPDATE an excisting task
 app.put("/tasks/:id", authenticateToken, async (req, res) => {
     const taskId = req.params.id;
     const { title, description, status, assignee_id } = req.body;
@@ -136,7 +136,7 @@ app.put("/tasks/:id", authenticateToken, async (req, res) => {
     }
 });
 
-// DELETE Task Route
+// DELETE task 
 app.delete("/tasks/:id", authenticateToken, async (req, res) => {
     const taskId = req.params.id;
     try {
